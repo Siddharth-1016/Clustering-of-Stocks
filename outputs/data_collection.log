@@ -1,0 +1,114 @@
+2026-04-30 15:08:40,554  INFO      Starting data collection for 50 tickers | period=2y
+2026-04-30 15:08:41,809  ERROR     Failed to get ticker 'AAPL' reason: Failed to perform, curl: (23) Failure writing output to destination, passed 13 returned 0. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.
+2026-04-30 15:10:59,004  INFO      Loaded price history (25050, 6) and fundamentals (50, 22)
+2026-04-30 15:10:59,005  INFO      === Feature Engineering Pipeline START ===
+2026-04-30 15:10:59,456  INFO      Technical features shape: (50, 23)
+2026-04-30 15:10:59,457  INFO      Merged feature matrix: (50, 45)
+2026-04-30 15:10:59,470  INFO      After missing value handling: (50, 45)
+2026-04-30 15:10:59,496  INFO      Outlier winsorisation complete.
+2026-04-30 15:10:59,510  INFO      Features scaled with RobustScaler. Shape: (50, 45)
+2026-04-30 15:10:59,510  INFO      === Feature Engineering Pipeline COMPLETE ===
+2026-04-30 15:18:14,581  INFO      Predicting: AAPL
+2026-04-30 15:18:14,590  INFO      Predicting: MSFT
+2026-04-30 15:18:14,591  INFO      Predicting: AMZN
+2026-04-30 15:19:33,049  INFO      Starting data collection for 50 tickers | period=2y
+2026-04-30 15:20:53,057  INFO      === Feature Engineering Pipeline START ===
+2026-04-30 15:20:53,460  INFO      Technical features shape: (50, 23)
+2026-04-30 15:20:53,462  INFO      Merged feature matrix: (50, 45)
+2026-04-30 15:20:53,468  INFO      After missing value handling: (50, 45)
+2026-04-30 15:20:53,495  INFO      Outlier winsorisation complete.
+2026-04-30 15:20:53,508  INFO      Features scaled with RobustScaler. Shape: (50, 45)
+2026-04-30 15:20:53,508  INFO      === Feature Engineering Pipeline COMPLETE ===
+2026-04-30 15:20:53,511  INFO      === EDA START ===
+2026-04-30 15:20:53,563  INFO      Summary statistics saved.
+2026-04-30 15:20:54,024  INFO      Plot saved: 01_missing_values.png
+2026-04-30 15:20:56,555  INFO      Plot saved: 02_distributions.png
+2026-04-30 15:20:57,473  INFO      Plot saved: 03_correlation_heatmap.png
+2026-04-30 15:20:57,866  INFO      Plot saved: 04_pca_analysis.png
+2026-04-30 15:20:57,869  INFO      PCA loadings saved.
+2026-04-30 15:21:00,612  INFO      Plot saved: 05_pairplot.png
+2026-04-30 15:21:00,612  INFO      === EDA COMPLETE — all plots in c:\Users\HP\Desktop\DATA SCIENCE COURSE\Classification of Stock\outputs ===
+2026-04-30 15:21:00,613  INFO      
+=== MODEL COMPARISON ===
+2026-04-30 15:21:00,614  INFO      Training KMeans across k values …
+2026-04-30 15:21:02,942  INFO        k=2: inertia=2478.3  sil=0.440  DB=1.241
+2026-04-30 15:21:03,018  INFO        k=3: inertia=2074.8  sil=0.328  DB=1.412
+2026-04-30 15:21:03,095  INFO        k=4: inertia=1877.7  sil=0.115  DB=1.871
+2026-04-30 15:21:03,170  INFO        k=5: inertia=1743.8  sil=0.108  DB=1.669
+2026-04-30 15:21:03,239  INFO        k=6: inertia=1582.3  sil=0.116  DB=1.472
+2026-04-30 15:21:03,311  INFO        k=7: inertia=1512.8  sil=0.102  DB=1.291
+2026-04-30 15:21:03,384  INFO        k=8: inertia=1385.4  sil=0.111  DB=1.207
+2026-04-30 15:21:03,467  INFO        k=9: inertia=1275.0  sil=0.121  DB=1.163
+2026-04-30 15:21:03,550  INFO        k=10: inertia=1171.5  sil=0.120  DB=1.159
+2026-04-30 15:21:04,385  INFO      Agglomerative k=3: sil=0.346  DB=1.356
+2026-04-30 15:21:04,401  INFO      
+               silhouette  davies_bouldin  calinski_harabasz
+Model                                                       
+KMeans             0.3281          1.4120            14.6479
+Agglomerative      0.3462          1.3564            14.4468
+DBSCAN                NaN             NaN                NaN
+2026-04-30 15:21:04,958  INFO      
+               silhouette  davies_bouldin  calinski_harabasz
+Model                                                       
+KMeans             0.3281          1.4120            14.6479
+Agglomerative      0.3462          1.3564            14.4468
+DBSCAN                NaN             NaN                NaN
+2026-04-30 15:21:04,960  INFO      Models saved to c:\Users\HP\Desktop\DATA SCIENCE COURSE\Classification of Stock\models
+2026-04-30 15:21:04,966  INFO      === CLUSTER INTERPRETATION ===
+2026-04-30 15:21:05,403  INFO      Plot saved: 09_cluster_pca.png
+2026-04-30 15:21:05,404  INFO      === Visualization Dashboard START ===
+2026-04-30 15:21:05,833  INFO      Plot saved: 10_pca_clusters.png
+2026-04-30 15:21:06,107  INFO      Plot saved: 11_radar_chart.png
+2026-04-30 15:21:06,534  INFO      Plot saved: 12_feature_heatmap.png
+2026-04-30 15:21:07,035  INFO      Plot saved: 13_top_stocks_table.png
+2026-04-30 15:21:07,796  INFO      Plot saved: 14_category_distributions.png
+2026-04-30 15:21:08,331  INFO      === Visualization Dashboard COMPLETE — outputs in c:\Users\HP\Desktop\DATA SCIENCE COURSE\Classification of Stock\outputs ===
+2026-04-30 15:21:08,351  INFO      
+============================================================
+2026-04-30 15:21:08,351  INFO        Pipeline COMPLETE in 95.3s
+2026-04-30 15:21:08,351  INFO        Stocks processed : 50
+2026-04-30 15:21:08,351  INFO        Feature columns  : 45
+2026-04-30 15:21:08,352  INFO        Label map        : {2: 'BUY', 1: 'MAYBE BUY', 0: 'NOT BUY'}
+2026-04-30 15:21:08,357  INFO        Category counts  :
+Category
+NOT BUY      40
+MAYBE BUY     6
+BUY           4
+2026-04-30 15:21:08,357  INFO        Outputs          : c:\Users\HP\Desktop\DATA SCIENCE COURSE\Classification of Stock\outputs
+2026-04-30 15:21:08,357  INFO        Models           : c:\Users\HP\Desktop\DATA SCIENCE COURSE\Classification of Stock\models
+2026-04-30 15:21:08,357  INFO      ============================================================
+2026-04-30 15:24:51,759  INFO      Predicting: RELIANCE
+2026-04-30 15:24:53,889  ERROR     $RELIANCE: possibly delisted; no price data found  (period=2y) (Yahoo error = "No data found, symbol may be delisted")
+2026-04-30 15:24:53,889  ERROR     
+1 Failed download:
+2026-04-30 15:24:53,889  ERROR     ['RELIANCE']: possibly delisted; no price data found  (period=2y) (Yahoo error = "No data found, symbol may be delisted")
+2026-04-30 15:24:53,956  WARNING   [RELIANCE] Empty price data (attempt 1)
+2026-04-30 15:24:57,589  ERROR     $RELIANCE: possibly delisted; no price data found  (period=2y) (Yahoo error = "No data found, symbol may be delisted")
+2026-04-30 15:24:57,589  ERROR     
+1 Failed download:
+2026-04-30 15:24:57,589  ERROR     ['RELIANCE']: possibly delisted; no price data found  (period=2y) (Yahoo error = "No data found, symbol may be delisted")
+2026-04-30 15:24:57,589  WARNING   [RELIANCE] Empty price data (attempt 2)
+2026-04-30 15:25:02,305  ERROR     $RELIANCE: possibly delisted; no price data found  (period=2y) (Yahoo error = "No data found, symbol may be delisted")
+2026-04-30 15:25:02,305  ERROR     
+1 Failed download:
+2026-04-30 15:25:02,305  ERROR     ['RELIANCE']: possibly delisted; no price data found  (period=2y) (Yahoo error = "No data found, symbol may be delisted")
+2026-04-30 15:25:02,323  WARNING   [RELIANCE] Empty price data (attempt 3)
+2026-04-30 15:25:08,326  ERROR     [RELIANCE] Failed after 3 attempts — skipping.
+2026-04-30 15:25:19,634  INFO      Predicting: RELIANCE
+2026-04-30 15:25:20,577  ERROR     $RELIANCE: possibly delisted; no price data found  (period=2y) (Yahoo error = "No data found, symbol may be delisted")
+2026-04-30 15:25:20,578  ERROR     
+1 Failed download:
+2026-04-30 15:25:20,578  ERROR     ['RELIANCE']: possibly delisted; no price data found  (period=2y) (Yahoo error = "No data found, symbol may be delisted")
+2026-04-30 15:25:20,589  WARNING   [RELIANCE] Empty price data (attempt 1)
+2026-04-30 15:25:23,238  ERROR     $RELIANCE: possibly delisted; no price data found  (period=2y) (Yahoo error = "No data found, symbol may be delisted")
+2026-04-30 15:25:23,238  ERROR     
+1 Failed download:
+2026-04-30 15:25:23,238  ERROR     ['RELIANCE']: possibly delisted; no price data found  (period=2y) (Yahoo error = "No data found, symbol may be delisted")
+2026-04-30 15:25:23,238  WARNING   [RELIANCE] Empty price data (attempt 2)
+2026-04-30 15:25:27,990  ERROR     $RELIANCE: possibly delisted; no price data found  (period=2y) (Yahoo error = "No data found, symbol may be delisted")
+2026-04-30 15:25:27,990  ERROR     
+1 Failed download:
+2026-04-30 15:25:27,990  ERROR     ['RELIANCE']: possibly delisted; no price data found  (period=2y) (Yahoo error = "No data found, symbol may be delisted")
+2026-04-30 15:25:28,006  WARNING   [RELIANCE] Empty price data (attempt 3)
+2026-04-30 15:25:34,010  ERROR     [RELIANCE] Failed after 3 attempts — skipping.
+2026-04-30 15:25:42,897  INFO      Predicting: AAPL
