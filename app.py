@@ -180,14 +180,24 @@ def build_radar_chart(result: PredictionResult, cluster_means: pd.DataFrame, lab
     angles = RADAR_FEATURES[:len(combined_norm)]
     fig = go.Figure()
 
+    # 1. Add this quick helper function right above the trace
+    def hex_to_rgba(hex_color, alpha=0.15):
+        hex_color = hex_color.lstrip('#')
+        r, g, b = tuple(int(hex_color[i:i+2], 16) for i in (0, 2, 4))
+        return f"rgba({r},{g},{b},{alpha})"
+
+    base_color = COLOR_MAP.get(cat, "#4e79a7")
+
+    # 2. Update the trace to use the helper function
     fig.add_trace(go.Scatterpolar(
         r=combined_norm["cluster"].tolist() + [combined_norm["cluster"].iloc[0]],
         theta=angles + [angles[0]],
         fill="toself",
         name=f"{EMOJI_MAP.get(cat, '')} {cat} Avg",
-        line=dict(color=COLOR_MAP.get(cat, "#4e79a7"), width=2),
-        fillcolor=COLOR_MAP.get(cat, "#4e79a7").replace("#", "rgba(") + ",0.15)",
+        line=dict(color=base_color, width=2),
+        fillcolor=hex_to_rgba(base_color, 0.15),
     ))
+
     fig.add_trace(go.Scatterpolar(
         r=combined_norm["ticker"].tolist() + [combined_norm["ticker"].iloc[0]],
         theta=angles + [angles[0]],
